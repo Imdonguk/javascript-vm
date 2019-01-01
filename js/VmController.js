@@ -11,30 +11,30 @@
     그것이 컨트롤러에 역할이라고 생각합니다!
  */
 export default class VmController {
-  constructor(menuView, model, moneyView, logView, selectItemView) {
+  constructor(menuView, model, walletView, logView, ButtonView) {
     this.menuView = menuView;
     this.model = model;
-    this.moneyView = moneyView;
+    this.walletView = walletView;
     this.logView = logView;
-    this.selectItemView = selectItemView;
+    this.ButtonView = ButtonView;
   }
   initializeView() {
-    this.moneyView.setMoneyData(this.model.getMoneyData());
-    this.moneyView.moneyView();
+    this.walletView.setMoneyData(this.model.getMoneyData());
+    this.walletView.moneyView();
   }
   initializeConnection() {
-    this.moneyView.insertCoinHandler = this.insertCoinHandler.bind(this);
-    this.moneyView.inputMoneyHandler = this.inputMoneyHandler.bind(this);
-    this.moneyView.returnMoneyHandler = this.returnMoneyHandler.bind(this);
-    this.moneyView.showNoMoneyHandler = this.showNoMoneyHandler.bind(this);
+    this.walletView.insertCoinHandler = this.insertCoinHandler.bind(this);
+    this.walletView.inputMoneyHandler = this.inputMoneyHandler.bind(this);
+    this.walletView.returnMoneyHandler = this.returnMoneyHandler.bind(this);
+    this.walletView.showNoMoneyHandler = this.showNoMoneyHandler.bind(this);
 
-    this.selectItemView.selectItemHandler = this.selectItemHandler.bind(this);
-    this.selectItemView.lackItemHandler = this.lackItemHandler.bind(this);
-    this.selectItemView.stopReturnMoneyHandler = this.stopReturnMoneyHandler.bind(this);
+    this.ButtonView.selectItemHandler = this.selectItemHandler.bind(this);
+    this.ButtonView.lackItemHandler = this.lackItemHandler.bind(this);
+    this.ButtonView.stopReturnMoneyHandler = this.stopReturnMoneyHandler.bind(this);
   }
   insertCoinHandler(coin) {
     this.model.insertCoin(coin);
-    this.moneyView.setMoneyData(this.model.getMoneyData());
+    this.walletView.setMoneyData(this.model.getMoneyData());
     this.logView.showMessage('INSERT_MONEY', coin);
   }
   inputMoneyHandler() {
@@ -46,29 +46,29 @@ export default class VmController {
   selectItemHandler({ itemId, itemName, itemPrice }) {
     if (this.model.getInputMoney() < itemPrice) {
       this.logView.showMessage('LACK_INPUTMONEY');
-      this.moneyView.returnMoney();
+      this.walletView.returnMoney();
       return;
     }
     this.model.selectItem(itemPrice);
 
-    this.moneyView.setMoneyData(this.model.getMoneyData());
-    this.moneyView.inputMoneyView();
-    this.moneyView.returnMoney();
+    this.walletView.setMoneyData(this.model.getMoneyData());
+    this.walletView.inputMoneyView();
+    this.walletView.returnMoney();
 
     this.logView.showMessage('SELECT_ITEM', itemId, itemName);
   }
   lackItemHandler() {
     this.logView.showMessage('LACK_ITEM');
-    this.moneyView.returnMoney();
+    this.walletView.returnMoney();
   }
   returnMoneyHandler() {
     const inputMoney = this.model.getInputMoney();
     if (inputMoney <= 0) return;
     this.logView.showMessage('RETURN_MONEY', inputMoney);
     this.model.returnMoney();
-    this.moneyView.setMoneyData(this.model.getMoneyData());
+    this.walletView.setMoneyData(this.model.getMoneyData());
   }
   stopReturnMoneyHandler() {
-    this.moneyView.stopReturnMoney();
+    this.walletView.stopReturnMoney();
   }
 }

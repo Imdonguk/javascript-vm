@@ -4,7 +4,7 @@
     - 지갑에 있는 돈을 자판기에 넣는 동작을 수행합니다.
     - 돈을 반환하는 동작을 수행합니다.
 */
-export default class MoneyView {
+export default class WalletView {
 
   constructor(delayTime) {
     this.inputMoneyHandler = null;

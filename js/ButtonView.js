@@ -2,7 +2,7 @@
     자판기에서 원하는 메뉴를 뽑기위한 버튼을 담당하는 view입니다.
     - 버튼을 클릭해서 메뉴를 고르게 되면 3초후에 선택한 메뉴가 나오게 됩니다.
 */
-export default class SelectItemView {
+export default class ButtonView {
   constructor(delayTime) {
     this.itemId = "";
     this.lackItemHandler = null;
