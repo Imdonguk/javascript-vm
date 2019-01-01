@@ -1,15 +1,9 @@
 # javascript-vm
-레벨3
+![Demo](./docs/project_demo.gif)
 
+### Demo & Review
 
-### 01 html 설계 하기 
+* [Demo](https://imdonguk.github.io/javascript-vm/)
+* [Project Review](./docs/project_review.md)
+* [Test Code Review]()
 
-자판기 
-* 상품들 
-* 버튼들 
-* 디스플레이 창 입력된 금액
-* 로그 창 행동들 기록 
-
-지갑 
-* 버튼들
-* 디스플레이 창 갖고 있는 금액
