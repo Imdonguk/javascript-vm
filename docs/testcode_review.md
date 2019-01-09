@@ -58,7 +58,7 @@ package.json정보를 봐보자.
 
 이렇게 추가가 되어있다. 이제 scripts프로퍼티에 명령어를 추가해주자.
 
-~~~json
+~~~
 //package.json
 {	
     ...
@@ -85,7 +85,7 @@ npm install --save-dev babel-presets-es2015
 
 이제 설치는 모두 끝났고 마지막으로 .babelrc라는 파일을 만들고, 
 
-~~~json
+~~~
 {
     'presets' : [
         'es2015'
