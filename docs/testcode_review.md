@@ -97,7 +97,7 @@ npm install --save-dev babel-presets-es2015
 
 만약 react를 transpile하고 싶다면 `npm install babel-presets-react` 를 해주고 presets에 react를 추가해준다.
 
-**이로써 jest설치와 node환경세팅이 끝났다. **
+**이로써 jest설치와 node환경세팅이 끝났다.**
 
 
 
